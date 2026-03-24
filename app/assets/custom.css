@@ -1,0 +1,85 @@
+/* ─── Base ─────────────────────────────────────────────────────────────── */
+body {
+  background-color: #0D1117;
+  color: #E6EDF3;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ─── Filter sidebar card ─────────────────────────────────────────────────── */
+.filter-card {
+  background-color: #161B22;
+  border: 1px solid #30363D;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+.filter-label {
+  color: #8B949E;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 6px;
+  display: block;
+}
+
+/* ─── Stat / chart cards ──────────────────────────────────────────────────── */
+.stat-card {
+  background-color: #161B22;
+  border: 1px solid #30363D;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ─── Player detail card ──────────────────────────────────────────────────── */
+.player-detail-card {
+  animation: fadeIn 0.25s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── Dash DataTable dark overrides ──────────────────────────────────────── */
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner th {
+  background-color: #161B22 !important;
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner td {
+  background-color: #161B22 !important;
+  color: #E6EDF3 !important;
+  border-color: #30363D !important;
+}
+
+.dash-table-container .dash-spreadsheet-container .dash-spreadsheet-inner tr:hover td {
+  background-color: #1C2128 !important;
+  cursor: pointer;
+}
+
+/* Filter input in DataTable */
+.dash-filter input {
+  background-color: #0D1117 !important;
+  color: #E6EDF3 !important;
+  border: 1px solid #30363D !important;
+}
+
+/* ─── Dropdown dark overrides ─────────────────────────────────────────────── */
+.Select-control {
+  background-color: #161B22 !important;
+  border-color: #30363D !important;
+  color: #E6EDF3 !important;
+}
+
+.Select-menu-outer {
+  background-color: #161B22 !important;
+  border-color: #30363D !important;
+}
+
+.VirtualizedSelectOption {
+  color: #E6EDF3 !important;
+}
+
+.VirtualizedSelectFocusedOption {
+  background-color: #1C2128 !important;
+}

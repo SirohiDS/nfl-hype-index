@@ -1,0 +1,46 @@
+app:
+  title: "NFL Hype Index Dashboard"
+  refresh_interval_ms: 30000   # 30 seconds
+  port: 8050
+  debug: false
+
+data:
+  player_count: 100
+  base_seed: 42
+  noise_std_sentiment: 0.03
+  noise_std_buzz: 1.5
+
+hype_thresholds:
+  significantly_overhyped: 20
+  overhyped: 10
+  underrated: -10
+  significantly_underrated: -20
+
+colors:
+  significantly_overhyped: "#E74C3C"
+  overhyped: "#E67E22"
+  fair_value: "#27AE60"
+  underrated: "#2980B9"
+  significantly_underrated: "#8E44AD"
+  background: "#0D1117"
+  card_background: "#161B22"
+  text_primary: "#E6EDF3"
+  text_secondary: "#8B949E"
+  border: "#30363D"
+  accent: "#58A6FF"
+
+positions:
+  - ALL
+  - QB
+  - RB
+  - WR
+  - TE
+  - DEF
+
+hype_categories:
+  - ALL
+  - Significantly Overhyped
+  - Overhyped
+  - Fair Value
+  - Underrated
+  - Significantly Underrated
