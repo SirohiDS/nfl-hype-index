@@ -240,5 +240,5 @@ app.layout = dbc.Container(
 # Register callbacks (side-effect import)
 import app.callbacks  # noqa: E402, F401
 
-if __name__ == "__main__":
+if __name__ in ("__main__", "app.app"):
     app.run(debug=True, host="0.0.0.0", port=CFG["app"]["port"])
