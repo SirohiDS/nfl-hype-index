@@ -6,13 +6,15 @@ Run directly for development:  python app/app.py
 Served via Gunicorn in Docker: gunicorn app.app:server --bind 0.0.0.0:8050
 """
 
+import os
 import yaml
 import dash
 import dash_bootstrap_components as dbc
 from dash import dcc, html, dash_table
 
-# Load configuration
-with open("config/settings.yaml") as f:
+# Load configuration (resolve path relative to project root, not cwd)
+_PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+with open(os.path.join(_PROJECT_ROOT, "config", "settings.yaml")) as f:
     CFG = yaml.safe_load(f)
 
 C = CFG["colors"]
@@ -23,6 +25,7 @@ REFRESH_MS = CFG["app"]["refresh_interval_ms"]
 # ── Dash app initialisation ──────────────────────────────────────────────────
 app = dash.Dash(
     __name__,
+    assets_folder=os.path.join(os.path.dirname(os.path.abspath(__file__)), "assets"),
     external_stylesheets=[dbc.themes.CYBORG],
     suppress_callback_exceptions=True,
     title=CFG["app"]["title"],
@@ -238,7 +241,9 @@ app.layout = dbc.Container(
 )
 
 # Register callbacks (side-effect import)
-import app.callbacks  # noqa: E402, F401
+from app import callbacks as _callbacks  # noqa: E402, F401
 
-if __name__ in ("__main__", "app.app"):
+if __name__ == "__main__":
+    # When running directly: python -m app.app (from project root with PYTHONPATH=.)
+    # Prefer using run.py instead: python run.py
     app.run(debug=True, host="0.0.0.0", port=CFG["app"]["port"])

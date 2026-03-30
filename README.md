@@ -7,6 +7,8 @@
 ![Plotly](https://img.shields.io/badge/Plotly-6.1.2-blue?logo=plotly)
 ![Docker](https://img.shields.io/badge/Docker-ready-2496ED?logo=docker)
 
+**[🚀 Live Demo](https://nfl-hype-index.onrender.com)** &nbsp;|&nbsp; [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/SirohiDS/nfl-hype-index)
+
 ---
 
 ## What is the Hype Index?
@@ -90,7 +92,7 @@ cd nfl-hype-index
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
 
-python app/app.py
+python run.py
 ```
 
 Open **http://localhost:8050**

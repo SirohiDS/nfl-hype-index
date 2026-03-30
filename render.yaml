@@ -1,0 +1,11 @@
+services:
+  - type: web
+    name: nfl-hype-index
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    envVars:
+      - key: PYTHONUNBUFFERED
+        value: "1"
+      - key: PYTHONPATH
+        value: /app

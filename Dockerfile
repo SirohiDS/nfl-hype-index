@@ -18,4 +18,5 @@ COPY . .
 EXPOSE 8050
 
 # Single worker to keep in-memory refresh tick state consistent
-CMD ["gunicorn", "app.app:server", "--bind", "0.0.0.0:8050", "--workers", "1", "--timeout", "120"]
+# $PORT is set by Render (and other platforms); falls back to 8050 locally
+CMD gunicorn app.app:server --bind 0.0.0.0:${PORT:-8050} --workers 1 --timeout 120

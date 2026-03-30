@@ -117,15 +117,14 @@ def make_scatter_plot(df: pd.DataFrame) -> go.Figure:
             ax=20, ay=-20,
         )
 
-    layout = dict(
-        **_DARK_LAYOUT,
+    fig.update_layout(
+        **{k: v for k, v in _DARK_LAYOUT.items() if k not in ("xaxis", "yaxis")},
         title=dict(text="Performance vs Sentiment", font=dict(size=14, color=_TEXT), x=0.02),
         xaxis=dict(**_DARK_LAYOUT["xaxis"], title="Performance Score (0–100)", range=[-2, 105]),
         yaxis=dict(**_DARK_LAYOUT["yaxis"], title="Sentiment Score (−1 to +1)", range=[-1.1, 1.1]),
         showlegend=False,
         height=380,
     )
-    fig.update_layout(**layout)
     return fig
 
 
@@ -172,8 +171,8 @@ def make_hype_bar_chart(df: pd.DataFrame) -> go.Figure:
     # Zero line
     fig.add_vline(x=0, line_color=_TEXT_SEC, line_width=1.5)
 
-    layout = dict(
-        **_DARK_LAYOUT,
+    fig.update_layout(
+        **{k: v for k, v in _DARK_LAYOUT.items() if k not in ("xaxis", "yaxis")},
         title=dict(text="Most Overhyped & Underrated (Top 10 Each)",
                    font=dict(size=14, color=_TEXT), x=0.02),
         xaxis=dict(**_DARK_LAYOUT["xaxis"], title="Hype Index",
@@ -182,7 +181,6 @@ def make_hype_bar_chart(df: pd.DataFrame) -> go.Figure:
         height=380,
         bargap=0.25,
     )
-    fig.update_layout(**layout)
     return fig
 
 
